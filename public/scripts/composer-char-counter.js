@@ -11,7 +11,7 @@ $(document).ready(function () {
     // Update the counter's text with the calculated value
     $('#counter').text(remainingChars);
 
-    // Check if the counter is in the negatives and add a CSS class if so
+    // Check if the counter is in the negatives and change the font color if so
     if (remainingChars < 0) {
       $('#counter').css('color', 'red');
     } else {
