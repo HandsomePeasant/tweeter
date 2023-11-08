@@ -1,11 +1,6 @@
 .new-tweet {
-  /* display: flex;
-  flex-direction: column;
-  align-items: stretch; */
   width: 30%;
   min-width: 18em;
-  font-size: 16px;
-  font-size: max(16px, 1em);
   font-family: inherit;
   padding: 1em 2em 1em 2em;
   background-color: #fff;
@@ -13,17 +8,18 @@
   margin: 40px auto;
 }
 
-textarea {
+.tweet-text {
   box-sizing: border-box;
   width: 100%;
   min-width: 100%;
+  font-size: 16px;
   border: none;
   border-bottom: solid black;
   resize: none;
   outline: none;
 }
 
-.tweet {
+.send-tweet {
   font-family: "Bungee", sans-serif;
   color: #FFFFFF;
   background-color: #4056A1;
@@ -34,6 +30,7 @@ textarea {
 }
 
 .counter {
+  padding-top: 0.25em;
   font-family: "Bungee", sans-serif;
 }
 
