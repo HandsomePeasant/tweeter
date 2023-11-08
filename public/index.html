@@ -27,6 +27,7 @@
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </head>
 
 <body>
@@ -48,16 +49,25 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
-      <!-- <h2>Compose Tweet</h2> -->
       <form method="POST" action="/tweets">
         <label for="tweet-text"><b>What are you humming about?</b></label><br>
-        <textarea name="text" id="tweet-text"></textarea>
+        <textarea name="text" id="tweet-text" class="tweet-text"></textarea>
         <div class="formBottom">
-          <button name="tweet" class="tweet" type="submit">Tweet</button>
-          <output name="counter" class="counter" for="tweet-text"><b>140</b></output>
+          <button name="send-tweet" class="send-tweet" type="submit">Tweet</button>
+          <output name="counter" class="counter" id="counter" for="tweet-text"><b>140</b></output>
         </div>
       </form>
     </section>
+    <!-- Automatically resizes the height of the form's textarea, in case user uses many line breaks, etc. -->
+    <script type="text/javascript">
+      tweetText = document.getElementById("tweet-text");
+      tweetText.addEventListener('input', autoResize, false);
+
+      function autoResize() {
+          this.style.height = 'auto';
+          this.style.height = this.scrollHeight + 'px';
+      }
+  </script>
   </main>
 </body>
 

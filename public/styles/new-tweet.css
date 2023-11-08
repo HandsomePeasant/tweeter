@@ -34,6 +34,10 @@
   font-family: "Bungee", sans-serif;
 }
 
+.container .counter.negative {
+  color: red;
+}
+
 .formBottom {
   display: flex;
   justify-content: space-between;
