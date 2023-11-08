@@ -1,0 +1,43 @@
+.new-tweet {
+  /* display: flex;
+  flex-direction: column;
+  align-items: stretch; */
+  width: 30%;
+  min-width: 18em;
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 1em 2em 1em 2em;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 40px auto;
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 100%;
+  border: none;
+  border-bottom: solid black;
+  resize: none;
+  outline: none;
+}
+
+.tweet {
+  font-family: "Bungee", sans-serif;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  margin-top: 4px;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.counter {
+  font-family: "Bungee", sans-serif;
+}
+
+.formBottom {
+  display: flex;
+  justify-content: space-between;
+}

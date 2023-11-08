@@ -18,7 +18,7 @@ a.nav-logo:link, a.nav-logo:visited {
   font-size: 48px;
 }
 
-a.new-tweet:link, a.new-tweet:visited {
+a.nav-tweet:link, a.nav-tweet:visited {
   color: white;
   text-decoration: none;
 }
