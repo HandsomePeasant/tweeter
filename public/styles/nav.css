@@ -3,6 +3,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0px;
   color: #FFFFFF;
   background-color: #4056A1;
   height: 120px;
