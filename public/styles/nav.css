@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  height: 120px;
+  width: 100vw;
+  padding: 1.5em;
+}
+
+a.nav-logo:link, a.nav-logo:visited {
+  color: white;
+  text-decoration: none;
+  font-family: "Bungee", sans-serif;
+  font-size: 48px;
+}
+
+a.new-tweet:link, a.new-tweet:visited {
+  color: white;
+  text-decoration: none;
+}
