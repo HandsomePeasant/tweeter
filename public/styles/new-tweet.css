@@ -22,7 +22,7 @@
 .send-tweet {
   font-family: "Bungee", sans-serif;
   color: #FFFFFF;
-  background-color: #4056A1;
+  background-color: #000000;
   margin-top: 4px;
   border: none;
   padding: 6px 10px;
@@ -32,10 +32,6 @@
 .counter {
   padding-top: 0.25em;
   font-family: "Bungee", sans-serif;
-}
-
-.container .counter.negative {
-  color: red;
 }
 
 .formBottom {

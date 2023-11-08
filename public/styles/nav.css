@@ -5,17 +5,11 @@ nav {
   position: fixed;
   top: 0px;
   color: #FFFFFF;
-  background-color: #4056A1;
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/green-dust-and-scratches.png");
   height: 120px;
   width: 100vw;
   padding: 1.5em;
-}
-
-a.nav-logo:link, a.nav-logo:visited {
-  color: white;
-  text-decoration: none;
-  font-family: "Bungee", sans-serif;
-  font-size: 48px;
 }
 
 a.nav-tweet:link, a.nav-tweet:visited {
