@@ -1,0 +1,51 @@
+.feed {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  min-width: 18em;
+  font-family: inherit;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: #fff;
+  border-radius: 8px;
+  margin: 10px auto;
+}
+
+.feed {
+  border: solid black;
+}
+
+article header {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1em;
+  width: 90%;
+  height: 25%;
+  color: #545149;
+  background-color: #fff;
+  background-image: none;
+}
+
+article p {
+  padding: 1em;
+  font-weight:bold;
+  border-bottom: solid black;
+}
+
+article footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.feed:hover {
+  box-shadow:5px 5px lightgrey;
+}
+
+.fa-solid {
+  color: #4056a1;
+}
+
+.fa-solid:hover {
+  color: rgb(255, 217, 0);
+}

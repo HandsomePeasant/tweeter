@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/feed.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -38,19 +39,19 @@
   </nav>
 
   <header>
-    <div class="avatar">
+    <div>
         <img src="/images/profile-hex.png"> 
     </div>
     <div>
         <h2>Your Name</h2>
     </div>
-</header>
+  </header>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
       <form method="POST" action="/tweets">
-        <label for="tweet-text"><b>What are you humming about?</b></label><br>
+        <label for="tweet-text"><b>What's on your mind? Memes?</b></label><br>
         <textarea name="text" id="tweet-text" class="tweet-text"></textarea>
         <div class="formBottom">
           <button name="send-tweet" class="send-tweet" type="submit">Yeet</button>
@@ -68,6 +69,31 @@
           this.style.height = this.scrollHeight + 'px';
       }
   </script>
+  <section class="feed">
+    <article>
+      <header>
+        <div>
+          John Q TestUser
+        </div>
+        <div>
+          @JQTest
+        </div>
+      </header>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+      <footer>
+        <div>
+          10 days ago
+        </div>
+        <div>
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </footer>
+    </article>
+  </section>
   </main>
 </body>
 
