@@ -54,13 +54,25 @@ const renderTweets = function(tweets) {
 const handleSubmit = (event) => {
   event.preventDefault();
   const formData = $(event.currentTarget).serialize();
+  const tweetText = $('#tweet-text').val().trim();
+  const tweetLength = tweetText.length;
+  const maxChars = 140;
+  if (tweetText === "") {
+    alert("Posting an empty Yeet is not very epic!");
+    return;
+  }
+
+  if (tweetLength > maxChars) {
+    alert("Your Yeet exceeds the character limit!");
+    return;
+  }
 
   $.ajax({
     method: "POST",
     url: "http://localhost:8080/tweets",
     data: formData
   })
-}
+};
 
 $(document).ready(function () {
   $("form").on("submit", handleSubmit);
