@@ -47,7 +47,7 @@ const createTweetElement = (data) => {
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
-    $("#feed").append(newTweet);
+    $("#feed").prepend(newTweet);
   }
 };
 
@@ -66,27 +66,35 @@ const handleSubmit = (event) => {
     alert("Your Yeet exceeds the character limit!");
     return;
   }
-
+  
   $.ajax({
     method: "POST",
     url: "http://localhost:8080/tweets",
     data: formData
   })
+  .then(() => {
+    // Clear the text field
+    $('#tweet-text').val('');
+
+    // Fetch the latest tweets and render them
+    loadTweets();
+  })
 };
+
+const loadTweets = () => {
+  const tweetData = $.ajax({
+    method: "GET",
+    url: "http://localhost:8080/tweets",
+  });
+  Promise.all([tweetData])
+  .then((res) => {
+    const [tweetData] = res;
+
+    renderTweets(tweetData);
+  })
+}
 
 $(document).ready(function () {
   $("form").on("submit", handleSubmit);
-  const loadTweets = () => {
-    const tweetData = $.ajax({
-      method: "GET",
-      url: "http://localhost:8080/tweets",
-    });
-    Promise.all([tweetData])
-    .then((res) => {
-      const [tweetData] = res;
-
-      renderTweets(tweetData);
-    })
-  }
   loadTweets();
 });
