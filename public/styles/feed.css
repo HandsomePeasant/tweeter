@@ -1,17 +1,20 @@
-.feed {
+#feed {
   display: flex;
   flex-direction: column;
   width: 50%;
   min-width: 18em;
   font-family: inherit;
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: #fff;
   border-radius: 8px;
   margin: 10px auto;
+  gap: 0.5em;
 }
 
-.feed {
+article {
+  background-color: #fff;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 8px;
   border: solid black;
+  width: 100%;
 }
 
 article header {
@@ -38,14 +41,24 @@ article footer {
   justify-content: space-between;
 }
 
-.feed:hover {
+article:hover {
   box-shadow:5px 5px lightgrey;
 }
 
+.icons {
+  display: flex;
+  gap: 0.2em;
+}
 .fa-solid {
   color: #4056a1;
 }
 
 .fa-solid:hover {
   color: rgb(255, 217, 0);
+}
+
+.user {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
 }
