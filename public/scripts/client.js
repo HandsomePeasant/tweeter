@@ -51,6 +51,21 @@ const renderTweets = function(tweets) {
   }
 };
 
+const buttonState = () => {
+  const tweetText = $('#tweet-text').val().trim();
+  const tweetLength = tweetText.length;
+  const maxChars = 140;
+  const $sendTweet = $('#send-tweet');
+
+  if (tweetText === "" || tweetLength > maxChars) {
+    $sendTweet.prop('aria-disabled', 'true');
+    $sendTweet.prop('disabled', true);
+  } else {
+    $sendTweet.prop('aria-disabled', 'false');
+    $sendTweet.prop('disabled', false);
+  }
+};
+
 const handleSubmit = (event) => {
   event.preventDefault();
   const formData = $(event.currentTarget).serialize();
@@ -78,6 +93,7 @@ const handleSubmit = (event) => {
 
     // Fetch the latest tweets and render them
     loadTweets();
+    buttonState();
   })
 };
 
@@ -95,6 +111,8 @@ const loadTweets = () => {
 }
 
 $(document).ready(function () {
+  buttonState();
+  $('#tweet-text').on('input', buttonState);
   $("form").on("submit", handleSubmit);
   loadTweets();
 });
