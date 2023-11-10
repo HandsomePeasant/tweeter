@@ -33,6 +33,7 @@ const createTweetElement = (data) => {
   $handleDiv.text(`${handle}`);
   $tweet.append($text);
   $text.text(`${text}`);
+  $text.html(text.replace(/\n/g, '<br>'));
   $tweet.append($footer);
   $footer.append($createdDiv);
   $createdDiv.text(timeAgo);
@@ -87,13 +88,14 @@ const handleSubmit = (event) => {
     url: "http://localhost:8080/tweets",
     data: formData
   })
-  .then(() => {
+  .done(() => {
     // Clear the text field
     $('#tweet-text').val('');
 
     // Fetch the latest tweets and render them
     loadTweets();
     buttonState();
+    $('#counter').text("140");
   })
 };
 
