@@ -9,7 +9,8 @@ const createTweetElement = (data) => {
   const avatar = data.user.avatars;
   const handle = data.user.handle;
   const text = data.content.text;
-  const created = data.created_at;
+  const createdDate = new Date(data.created_at);
+  const timeAgo = timeago.format(createdDate);
 
   const $tweet = $("<article>");
   const $header = $("<header>");
@@ -34,7 +35,7 @@ const createTweetElement = (data) => {
   $text.text(`${text}`);
   $tweet.append($footer);
   $footer.append($createdDiv);
-  $createdDiv.text(`${created}`);
+  $createdDiv.text(timeAgo);
   $footer.append($iconsDiv);
   $iconsDiv.append($iconFlag);
   $iconsDiv.append($iconRetweet);
@@ -43,31 +44,6 @@ const createTweetElement = (data) => {
   return $tweet;
 }
 
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1699450416226
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1699536816226
-  }
-]
-
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
@@ -75,6 +51,30 @@ const renderTweets = function(tweets) {
   }
 };
 
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const formData = $(event.currentTarget).serialize();
+
+  $.ajax({
+    method: "POST",
+    url: "http://localhost:8080/tweets",
+    data: formData
+  })
+}
+
 $(document).ready(function () {
-  renderTweets(tweetData);
+  $("form").on("submit", handleSubmit);
+  const loadTweets = () => {
+    const tweetData = $.ajax({
+      method: "GET",
+      url: "http://localhost:8080/tweets",
+    });
+    Promise.all([tweetData])
+    .then((res) => {
+      const [tweetData] = res;
+
+      renderTweets(tweetData);
+    })
+  }
+  loadTweets();
 });
