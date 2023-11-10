@@ -10,3 +10,10 @@ header {
   background-color: #4056A1;
   background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png");
 }
+
+.photo {
+  width: 10em;
+  height: 12em;
+  -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}

@@ -10,6 +10,7 @@ nav {
   height: 120px;
   width: 100vw;
   padding: 1.5em;
+  z-index: 100;
 }
 
 a.nav-tweet:link, a.nav-tweet:visited {
