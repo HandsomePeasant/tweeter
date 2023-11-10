@@ -33,7 +33,6 @@ const createTweetElement = (data) => {
   $handleDiv.text(`${handle}`);
   $tweet.append($text);
   $text.text(`${text}`);
-  $text.html(text.replace(/\n/g, '<br>'));
   $tweet.append($footer);
   $footer.append($createdDiv);
   $createdDiv.text(timeAgo);
