@@ -15,7 +15,7 @@ const createTweetElement = (data) => {
   const $tweet = $("<article>");
   const $header = $("<header>");
   const $userDiv = $("<div class='user'>");
-  const $userImage = $(`<img src="${avatar}">`)
+  const $userImage = $(`<img src="${avatar}" class="avatar">`)
   const $handleDiv = $("<div>");
   const $text = $("<p>");
   const $footer = $("<footer>");

@@ -1,26 +1,27 @@
 #feed {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  min-width: 18em;
+  width: 60%;
+  min-width: 28em;
   font-family: inherit;
   border-radius: 8px;
-  margin: 10px auto;
+  margin: 20px auto;
   gap: 0.5em;
 }
 
 article {
+  align-self: center;
   background-color: #fff;
   padding: 0.5em 1em 0.5em 1em;
   border-radius: 8px;
   border: solid black;
-  width: 100%;
+  width: 90%;
 }
 
 article header {
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-top: 1em;
   width: 90%;
   height: 25%;
@@ -61,4 +62,5 @@ article:hover {
   display: flex;
   gap: 0.4em;
   align-items: center;
+  justify-self: flex-start;
 }

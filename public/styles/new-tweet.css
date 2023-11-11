@@ -1,14 +1,14 @@
 .new-tweet {
-  width: 50%;
-  min-width: 18em;
+  min-width: 22em;
   font-family: inherit;
-  padding: 1em 2em 1em 2em;
+  padding: 1em 2em;
   background-color: #fff;
   border-radius: 8px;
-  margin: 40px auto;
+  margin: 20px auto;
 }
 
 .tweet-text {
+  flex: 1;
   box-sizing: border-box;
   width: 100%;
   min-height: 3em;
@@ -42,4 +42,10 @@
 #send-tweet[aria-disabled="true"],
 #send-tweet[disabled] {
   background-color: lightslategray;
+}
+
+@media only screen and (min-width: 1024px) {
+  .new-tweet {
+    width: 50%;
+  }
 }
