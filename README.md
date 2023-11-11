@@ -1,8 +1,13 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+Y is a simple, single-page X clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+Makes use of jQuery, AJAX, HTML and CSS to ensure the site is clean, sleek and, most importantly, epic.
+
+## Screenshots
+
+!["Screenshot of desktop view"](https://github.com/HandsomePeasant/tweeter/blob/master/docs/tweeter-desktop-view.png?raw=true)
+!["Screenshot of mobile view"](https://github.com/HandsomePeasant/tweeter/blob/master/docs/tweeter-mobile-view.png?raw=true)
 
 ## Getting Started
 
