@@ -8,7 +8,9 @@
   <title>Y</title>
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +28,9 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+    integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
@@ -37,15 +41,17 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <span><a class="nav-logo" href="/"><img src="/images/logo.png" width="52" height="52"></a></span>
-    <div><a class="nav-tweet" href="/"><b>Write</b> a new yeet<br><center><i class="fa-solid fa-angles-down" style="color: #da0101;"></i></center></a></div>
+    <div><a class="nav-tweet" href="#" onclick="focusTextArea()"><b>Write</b> a new yeet<br>
+        <center><i class="fa-solid fa-angles-down" style="color: #da0101;"></i></center>
+      </a></div>
   </nav>
 
   <header id="bodyHeader">
     <div>
-        <img src="/images/doge-cropped.png" id="photo"> 
+      <img src="/images/doge-cropped.png" id="photo">
     </div>
     <div>
-        <h2>Adon MuskCarville</h2>
+      <h2>Adon MuskCarville</h2>
     </div>
   </header>
 
@@ -61,18 +67,24 @@
         </div>
       </form>
     </section>
-    <!-- Automatically resizes the height of the form's textarea, in case user uses many line breaks, etc. -->
     <script type="text/javascript">
       tweetText = document.getElementById("tweet-text");
       tweetText.addEventListener('input', autoResize, false);
 
+      // Function automatically resizes the textarea if the user enters several line breaks, etc. to improve readability
       function autoResize() {
-          this.style.height = 'auto';
-          this.style.height = this.scrollHeight + 'px';
+        this.style.height = 'auto';
+        this.style.height = this.scrollHeight + 'px';
       }
-  </script>
-  <section id="feed">
-  </section>
+
+      // Function focuses the form's textarea and prevents the nav link from running its default behaviour
+      function focusTextArea() {
+        event.preventDefault();
+        tweetText.focus();
+      }
+    </script>
+    <section id="feed">
+    </section>
   </main>
 </body>
 
