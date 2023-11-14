@@ -49,12 +49,10 @@ article:hover {
 .icons {
   display: flex;
   gap: 0.2em;
-}
-.fa-solid {
   color: #4056a1;
 }
 
-.fa-solid:hover {
+.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover {
   color: rgb(255, 217, 0);
 }
 

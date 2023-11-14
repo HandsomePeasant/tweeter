@@ -19,7 +19,30 @@
   outline: none;
 }
 
-.send-tweet {
+.counter {
+  padding-top: 0.25em;
+  font-family: "Bungee", sans-serif;
+}
+
+.formUpper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fa-xmark {
+  color: #545149;
+}
+
+.fa-xmark:hover {
+  color: red;
+}
+
+.formBottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+#send-tweet {
   font-family: "Bungee", sans-serif;
   color: #FFFFFF;
   background-color: #000000;
@@ -29,19 +52,20 @@
   border-radius: 4px;
 }
 
-.counter {
-  padding-top: 0.25em;
-  font-family: "Bungee", sans-serif;
-}
-
-.formBottom {
-  display: flex;
-  justify-content: space-between;
+#send-tweet:hover {
+  background-color: #333;
+  cursor: pointer;
 }
 
 #send-tweet[aria-disabled="true"],
 #send-tweet[disabled] {
-  background-color: lightslategray;
+  background-color: lightgray;
+}
+
+#send-tweet[aria-disabled="true"]:hover,
+#send-tweet[disabled]:hover {
+  cursor:initial;
+  background-color: lightgray;
 }
 
 @media only screen and (min-width: 1024px) {

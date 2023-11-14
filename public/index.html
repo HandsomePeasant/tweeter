@@ -41,7 +41,7 @@
   <!-- Top nav bar (fixed) -->
   <nav>
     <span><a class="nav-logo" href="/"><img src="/images/logo.png" width="52" height="52"></a></span>
-    <div><a class="nav-tweet" href="#" onclick="focusTextArea()"><b>Write</b> a new yeet<br>
+    <div><a class="nav-tweet" href="/"><b>Write</b> a new Yeet<br>
         <center><i class="fa-solid fa-angles-down" style="color: #da0101;"></i></center>
       </a></div>
   </nav>
@@ -57,9 +57,18 @@
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <div class="error-message">
+      <i class="fa-solid fa-circle-exclamation" style="color: #da0101;"></i>
+      <p>
+      </p>
+      <i class="fa-solid fa-circle-exclamation" style="color: #da0101;"></i>
+    </div>
     <section class="new-tweet">
       <form method="POST" action="/tweets">
-        <label for="tweet-text"><b>What's on your mind? Memes?</b></label><br>
+        <div class="formUpper">
+          <label for="tweet-text"><b>What's on your mind? Memes?</b></label><br>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
         <textarea name="text" id="tweet-text" class="tweet-text"></textarea>
         <div class="formBottom">
           <button name="send-tweet" id="send-tweet" class="send-tweet" type="submit">Yeet</button>
@@ -77,11 +86,6 @@
         this.style.height = this.scrollHeight + 'px';
       }
 
-      // Function focuses the form's textarea and prevents the nav link from running its default behaviour
-      function focusTextArea() {
-        event.preventDefault();
-        tweetText.focus();
-      }
     </script>
     <section id="feed">
     </section>

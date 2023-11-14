@@ -44,9 +44,9 @@ const createTweetElement = (data) => {
   $iconsDiv.append($iconHeart);
 
   return $tweet;
-}
+};
 
-const renderTweets = function(tweets) {
+const renderTweets = (tweets) => {
   $("#feed").empty();
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
@@ -54,7 +54,8 @@ const renderTweets = function(tweets) {
   }
 };
 
-// Function will disable the form's submit button if the textarea is empty, or if the text exceeds the character limit
+// Function will disable and grey out the form's submit button if the textarea is empty, or if the text exceeds the character limit
+// --- Three(3) lines using buttonState() below are indicated with comments, comment them out to test error handling ---
 const buttonState = () => {
   const tweetText = $('#tweet-text').val().trim();
   const tweetLength = tweetText.length;
@@ -70,37 +71,40 @@ const buttonState = () => {
   }
 };
 
-
 const handleSubmit = (event) => {
   event.preventDefault();
   const formData = $(event.currentTarget).serialize();
 
-  // Alerts for empty / too-long tweet are less useful now that the button simply does not work under those conditions, but still helpful in case of a user trying to circumvent use of the button
+  // If tweet is either too long or empty, an error message will slide down to inform the user. 
   const tweetText = $('#tweet-text').val().trim();
   const tweetLength = tweetText.length;
   const maxChars = 140;
   if (tweetText === "") {
-    alert("Posting an empty Yeet is not very epic!");
+    $('.error-message p').text("Posting an empty Yeet is not very epic!")
+    $('.error-message').slideDown();
     return;
   }
 
   if (tweetLength > maxChars) {
-    alert("Your Yeet exceeds the character limit!");
+    $('.error-message p').text("Your Yeet exceeds the character limit!")
+    $('.error-message').slideDown();
     return;
   }
-  
+
   $.ajax({
     method: "POST",
     url: "/tweets",
     data: formData
   })
-  .done(() => {
-    // Once the Ajax POST request has completed, clear the text field, re-render tweets, re-disable the submit button and reset the character counter
-    $('#tweet-text').val('');
-    loadTweets();
-    buttonState();
-    $('#counter').text("140");
-  })
+    .done(() => {
+      // Once the Ajax POST request has completed, clear the text field, re-render tweets, re-disable the submit button, hide any error message and reset the character counter
+      $('#tweet-text').val('');
+      $('.new-tweet').slideUp();
+      $('.error-message').slideUp();
+      loadTweets();
+      buttonState(); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (1) ---
+      $('#counter').text("140");
+    });
 };
 
 const loadTweets = () => {
@@ -108,17 +112,48 @@ const loadTweets = () => {
     method: "GET",
     url: "/tweets",
   });
+
   Promise.all([tweetData])
-  .then((res) => {
-    const [tweetData] = res;
-    renderTweets(tweetData);
-  })
-}
+    .then((res) => {
+      const [tweetData] = res;
+      renderTweets(tweetData);
+    })
+
+    .catch((error) => {
+      $('.error-message p').text("Uh oh, something went wrong while you were Yeeting!");
+      $('.error-message').slideDown();
+    });
+};
 
 // Once the DOM is ready, disable the submit button (as the text field is empty), set event listeners for form submission & text input, and render tweets
 $(document).ready(function () {
-  buttonState();
-  $('#tweet-text').on('input', buttonState);
+  $('.error-message').slideUp();
+  $('.new-tweet').slideUp();
+  $('#tweet-text').on('input', function () {
+    $('.error-message').slideUp();
+  });
+
+  buttonState(); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (2) ---
+  $('#tweet-text').on('input', buttonState); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (3) ---
   $("form").on("submit", handleSubmit);
+  $('.fa-xmark').on('click', function() {
+    $('.new-tweet').slideUp();
+    $('#tweet-text').val('');
+  });
+  
+  // Clicking the "Write a new Yeet" text in the nav will enable the new-tweet form (and reset the state of the submit button & character counter), or focus the text field if the form is already visible
+  $('.nav-tweet').on('click', function(event) {
+    event.preventDefault();
+    if ($('.new-tweet').is(':visible')) {
+      $('.tweet-text').focus();
+    } else {
+      $('.new-tweet').slideDown();
+      $('.tweet-text').focus();
+      buttonState();
+      $('#counter').text('140');
+      $('#counter').css('color', '#545149');
+    }
+  });
+
   loadTweets();
 });

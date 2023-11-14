@@ -62,3 +62,21 @@ main {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ .error-message {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  background-color: #fff;
+  border: solid 1px black;
+  border-radius: 8px;
+  margin-top: 0.5em;
+  padding: 0.5em;
+  height: 40px;
+  width: 40%;
+ }
+
+ .fa-circle-exclamation {
+  margin: 1em;
+ }
