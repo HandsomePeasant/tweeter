@@ -47,6 +47,7 @@ const createTweetElement = (data) => {
 }
 
 const renderTweets = function(tweets) {
+  $("#feed").empty();
   for (const tweet of tweets) {
     const newTweet = createTweetElement(tweet);
     $("#feed").prepend(newTweet);
@@ -90,7 +91,7 @@ const handleSubmit = (event) => {
   
   $.ajax({
     method: "POST",
-    url: "http://localhost:8080/tweets",
+    url: "/tweets",
     data: formData
   })
   .done(() => {
@@ -105,7 +106,7 @@ const handleSubmit = (event) => {
 const loadTweets = () => {
   const tweetData = $.ajax({
     method: "GET",
-    url: "http://localhost:8080/tweets",
+    url: "/tweets",
   });
   Promise.all([tweetData])
   .then((res) => {
