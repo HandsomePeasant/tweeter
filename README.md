@@ -16,6 +16,7 @@ Makes use of jQuery, AJAX, HTML and CSS to ensure the site is clean, sleek and, 
 3. Install dependencies using the `npm install` command.
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
+5. (**For testing error handling**) client.js indicates the three lines of code that must be commented out to allow the form submission button to function when form is empty / over the character limit
 
 ## Dependencies
 
