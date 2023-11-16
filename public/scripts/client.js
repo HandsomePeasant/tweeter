@@ -54,23 +54,6 @@ const renderTweets = (tweets) => {
   }
 };
 
-// Function will disable and grey out the form's submit button if the textarea is empty, or if the text exceeds the character limit
-// --- Three(3) lines using buttonState() below are indicated with comments, comment them out to test error handling ---
-const buttonState = () => {
-  const tweetText = $('#tweet-text').val().trim();
-  const tweetLength = tweetText.length;
-  const maxChars = 140;
-  const $sendTweet = $('#send-tweet');
-
-  if (tweetText === "" || tweetLength > maxChars) {
-    $sendTweet.prop('aria-disabled', 'true');
-    $sendTweet.prop('disabled', true);
-  } else {
-    $sendTweet.prop('aria-disabled', 'false');
-    $sendTweet.prop('disabled', false);
-  }
-};
-
 const handleSubmit = (event) => {
   event.preventDefault();
   const formData = $(event.currentTarget).serialize();
@@ -102,7 +85,6 @@ const handleSubmit = (event) => {
       $('.new-tweet').slideUp();
       $('.error-message').slideUp();
       loadTweets();
-      buttonState(); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (1) ---
       $('#counter').text("140");
     });
 };
@@ -133,15 +115,13 @@ $(document).ready(function () {
     $('.error-message').slideUp();
   });
 
-  buttonState(); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (2) ---
-  $('#tweet-text').on('input', buttonState); // --- COMMENT OUT THIS LINE FOR ERROR TESTING (3) ---
   $("form").on("submit", handleSubmit);
   $('.fa-xmark').on('click', function() {
     $('.new-tweet').slideUp();
     $('#tweet-text').val('');
   });
   
-  // Clicking the "Write a new Yeet" text in the nav will enable the new-tweet form (and reset the state of the submit button & character counter), or focus the text field if the form is already visible
+  // Clicking the "Write a new Yeet" text in the nav will enable the new-tweet form (and reset the counter), or focus the text field if the form is already visible
   $('.nav-tweet').on('click', function(event) {
     event.preventDefault();
     if ($('.new-tweet').is(':visible')) {
@@ -149,7 +129,6 @@ $(document).ready(function () {
     } else {
       $('.new-tweet').slideDown();
       $('.tweet-text').focus();
-      buttonState();
       $('#counter').text('140');
       $('#counter').css('color', '#545149');
     }

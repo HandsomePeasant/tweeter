@@ -10,10 +10,21 @@ nav {
   height: 120px;
   width: 100vw;
   padding: 1.5em;
-  z-index: 100;
 }
 
 a.nav-tweet:link, a.nav-tweet:visited {
   color: white;
   text-decoration: none;
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    z-index: 100;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  nav {
+    z-index: 0;
+  }
 }
