@@ -118,6 +118,7 @@ $(document).ready(function () {
   $("form").on("submit", handleSubmit);
   $('.fa-xmark').on('click', function() {
     $('.new-tweet').slideUp();
+    $('.error-message').slideUp();
     $('#tweet-text').val('');
   });
   
